@@ -1,12 +1,22 @@
 #include<stdio.h>
+#include<math.h>
 
 int dec_bin(int);
 int dec_oct(int);
 int dec_hex(int);
-#define INICIO 0
+
 #define DEC_BIN 1
 #define DEC_OCT 2
 #define DEC_HEX 3
+#define BIN_DEC 4
+#define BIN_OCT 5
+#define BIN_HEX 6
+#define OCT_DEC 7
+#define OCT_BIN 8
+#define OCT_HEX 9
+#define HEX_DEC 10
+#define HEX_BIN 11
+#define HEX_OCT 12
 
 int main(void){
 
@@ -32,6 +42,14 @@ int main(void){
 
         case DEC_HEX:
             dec_hex(val);
+            break;
+
+        case BIN_DEC:
+            bin_dec(val);
+            break;
+
+        case BIN_OCT:
+            bin_oct(val);
             break;
     }
 }
@@ -125,3 +143,34 @@ int dec_hex(int val){
     }
     printf("\n\n");
 }
+
+void bin_dec(int x){
+double decimal, residuo, i = 0;
+    while(x!=0){
+        residuo=x%10;
+        x=x/10;
+        decimal=decimal+residuo*(pow(2,i));
+        i++;
+}
+    printf("El valor en decimal es %.2f", decimal);
+}
+
+void bin_oct(int n){
+ int grupo, decimal, octal = 0, posicion = 0;
+    while (n != 0) {
+        grupo = n % 1000;  // Obtiene el ultimo grupo de tres digitos
+        n = n / 1000;  // Elimina el ultimo grupo de tres dígitos
+
+        while (grupo != 0) {
+            int digito = grupo % 10;  // Obtiene el ultimo digito del grupo
+            grupo = grupo / 10;  // Elimina el ultimo digito del grupo
+
+            decimal += digito * pow(2, potencia); // Se calcula el valor decimal del digiyo actual multiplicandolo por la potencia correspondiente de 2
+            potencia++;
+        }
+        octal += decimal * pow(10, posicion);
+        posicion++;
+    }
+    printf("El valor en octal es: %d\n", octal);
+}
+
