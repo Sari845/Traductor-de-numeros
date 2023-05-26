@@ -9,7 +9,7 @@ int dec_hex(int);
 #define DEC_HEX 3
 
 int main(void){
-    
+
     int val;
     int tipo;
     int menu;
@@ -25,7 +25,7 @@ int main(void){
         case DEC_BIN:
             dec_bin(val);
             break;
-        
+
         case DEC_OCT:
             dec_oct(val);
             break;
@@ -42,13 +42,13 @@ int dec_bin(int val){
     for ( i = 0; i < 100; i++) {
         objeto[i] = val % 2;
         val = val / 2;
-        
+
         if (val == 1/2) {
             f = i;
             //printf("%d", f);
             i = 101;
         }
-        
+
     }
     printf("Su valor en binario es:");
     for ( f; f > -1; f--) {
@@ -63,13 +63,13 @@ int dec_oct(int val){
     for ( i = 0; i < 100; i++) {
         objeto[i] = val % 8;
         val = val / 8;
-        
+
         if (val == 1/2) {
             f = i;
             //printf("%d", f);
             i = 101;
         }
-        
+
     }
     printf("Su valor en octal es:");
     for ( f; f > -1; f--) {
@@ -82,38 +82,45 @@ int dec_hex(int val){
     int i, f;
     char objeto[50];
 
-    for ( i = 0; i < 100; i++) {
+    for(i=0; i<100;i++){
         objeto[i] = val % 16;
         val = val / 16;
-        
+
         if (val < 16) {
-            f = i;
+            f = i+1;
+            objeto[f] = val;
             //printf("%d", f);
             i = 101;
         }
-        
+
     }
     printf("Su valor en hexadecimal es:");
     for ( f; f > -1; f--) {
         if (objeto[f]==10){
-            objeto[f]= 'A';
+            objeto[f]='A';
+            printf("%c", objeto[f]);
         }
-        if (objeto[f]==11){
-            objeto[f]= 'B';
+        else if (objeto[f]==11){
+            objeto[f]='B';
+            printf("%c", objeto[f]);
         }
-        if (objeto[f]==12){
-            objeto[f]= 'C';
+        else if (objeto[f]==12){
+            objeto[f]='C';
+            printf("%c", objeto[f]);
         }
-        if (objeto[f]==13){
-            objeto[f]= 'D';
+        else if (objeto[f]==13){
+            objeto[f]='D';
+            printf("%c", objeto[f]);
         }
-        if (objeto[f]==14){
-            objeto[f]= 'E';
+        else if (objeto[f]==14){
+            objeto[f]='E';
+            printf("%c", objeto[f]);
         }
-        if (objeto[f]==15){
-            objeto[f]= 'F';
+        else if (objeto[f]==15){
+            objeto[f]='F';
+            printf("%c", objeto[f]);
         }
-        printf("%c", objeto[f]);
+        else printf("%d", objeto[f]);
 
     }
     printf("\n\n");
