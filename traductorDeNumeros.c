@@ -156,10 +156,10 @@ double decimal, residuo, i = 0;
 }
 
 void bin_oct(int n){
- int grupo, decimal, octal = 0, posicion = 0;
+ int grupo, decimal, octal, posicion = 0;
     while (n != 0) {
         grupo = n % 1000;  // Obtiene el ultimo grupo de tres digitos
-        n = n / 1000;  // Elimina el ultimo grupo de tres dígitos
+        n = n / 1000;  // Elimina el ultimo grupo de tres digitos
 
         while (grupo != 0) {
             int digito = grupo % 10;  // Obtiene el ultimo digito del grupo
@@ -173,4 +173,5 @@ void bin_oct(int n){
     }
     printf("El valor en octal es: %d\n", octal);
 }
+
 
